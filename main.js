@@ -79,24 +79,20 @@ console.log(personas);
 
 let listadepalabras = ['barcelona', 'madrid', 'sevilla', 'valencia', 'bilbao', 'granada', 'toledo', 'salamanca', 'zaragoza', 'lisboa', 'oporto', 'roma', 'venecia', 'hamburgo', 'bruselas', 'londres', 'edimburgo', 'praga', 'budapest', 'atenas', 'estambul',  'valladolid', 'panama', 'lima', 'bogota', 'quito', 'asuncion', 'buenos aires', 'montevideo', 'caracas', 'santiago', 'brasilia', 'lisboa', 'roma', 'paris', 'londres', 'berlin', 'amsterdam', 'praga', 'budapest', 'atenas', 'estambul', 'tokio']
 
-console.log(listadepalabras.length);
-
 let palabraAdivinar = listadepalabras[Math.floor(Math.random()* listadepalabras.length)]
-console.log(palabraAdivinar);
-
 let palabraUsuario = ''
 let intentos = 0
 let slais = 0
 
 do{
-    palabraUsuario = palabraUsuario + prompt('ADIVINA LA CIUDAD! Ingresa una letra, tienes 50 intentos (sin tildes ni mayusculas)')
+    palabraUsuario = palabraUsuario + prompt('ADIVINA LA CIUDAD! Ingresa una letra, tienes 30 intentos (sin tildes ni mayusculas)')
     console.log(palabraUsuario);
     if(palabraUsuario.slice(slais,slais+1) === palabraAdivinar.slice(slais,slais+1)){
         slais++
         console.log('Vas bien');
     }else{
         palabraUsuario = palabraUsuario.slice(0, palabraUsuario.length - 1)
-        console.log('Esta letra no está en la palabra');
+        console.log('Esta letra no es la que sigue en la palabra');
     }
     intentos++
     if(palabraAdivinar!=palabraUsuario){
@@ -108,7 +104,7 @@ do{
     if(intentos === 30 && palabraUsuario != palabraAdivinar){
         console.log('Has fallado, suerte para la proxima! (La palabra era ' + palabraAdivinar + ')');
     }
-}while(intentos < 50 && palabraUsuario != palabraAdivinar)
+}while(intentos < 30 && palabraUsuario != palabraAdivinar)
 
 
 
@@ -141,13 +137,13 @@ class Estudiante extends Persona{
         this._curso = curso
     }
     get presentar(){
-        return `Nombre:${this._nombre}, Edad:${this._edad}, Curso:${this._curso}`
+        return `Hola, soy ${this._nombre}, tengo ${this._edad} y estoy en el curso de ${this._curso}`
     }
 }
 
 let estudiante1 = new Estudiante('Pedro', 19, 'Programación')
-let estudiante2 = new Estudiante('Alvaro', 51, 'Diseno Grafico')
-let estudiante3 = new Estudiante('Ernesto', 21, 'Diseno Grafico')
+let estudiante2 = new Estudiante('Alvaro', 51, 'Diseño Grafico')
+let estudiante3 = new Estudiante('Ernesto', 21, 'Diseño Grafico')
 console.log(estudiante1);
 console.log(estudiante1.presentar);
 console.log(estudiante2.presentar);
